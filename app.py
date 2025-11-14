@@ -17,7 +17,8 @@ MASCOTAS_DATA = {
 # ----------------------------------------------------------------------
 
 
-@app.route('/qr-scan/')
+@app.route('/')         # <--- RUTA PRINCIPAL
+@app.route('/qr-scan/') # <--- Mantenemos la ruta antigua por si acaso
 def handle_qr_scan():
     """Maneja la solicitud al escanear el QR."""
     
