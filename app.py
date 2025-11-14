@@ -17,7 +17,8 @@ MASCOTAS_DATA = {
 # ----------------------------------------------------------------------
 
 
-@app.route('/qr-scan/')
+@app.route('/')         # <--- RUTA PRINCIPAL
+@app.route('/qr-scan/') # <--- Mantenemos la ruta antigua por si acaso
 def handle_qr_scan():
     """Maneja la solicitud al escanear el QR."""
     
@@ -44,8 +45,3 @@ def handle_qr_scan():
                            datos=datos_mermelada,
                            nombre_mascota=nombre_archivo,
                            mensaje_sostenible=mensaje_sostenible)
-
-# Solo para probar en tu computadora:
-if __name__ == '__main__':
-    print("Iniciando servidor local en http://127.0.0.1:5000/qr-scan/")
-    app.run(debug=True)
