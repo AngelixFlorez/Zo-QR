@@ -31,7 +31,7 @@ def handle_qr_scan():
     # 3. Obtiene el mensaje de sostenibilidad
     mensaje_sostenible = MASCOTAS_DATA.get(
         nombre_archivo, 
-        "¡Gracias por elegir So! Nuestro compromiso es el sabor sostenible." # Mensaje de respaldo
+        "¡Gracias por elegir Zó! Nuestro compromiso es el sabor sostenible." # Mensaje de respaldo
     )
     
     # 4. Datos Fijos para la página
