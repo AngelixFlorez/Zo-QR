@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Bienvenido a So! | Descubre tu Mascota</title>
+    <style>
+        /* Estilos básicos para la demostración */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 20px; background-color: #f0f0f5; }
+        .container { max-width: 650px; margin: 0 auto; background-color: white; padding: 40px; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        h1 { color: #A52A2A; } /* Tono rojizo del Corozo */
+        .pet-image { width: 180px; height: 180px; object-fit: cover; border: 4px solid #FFD700; border-radius: 50%; margin: 25px auto; display: block; }
+        .sustainability-box { background-color: #e6ffe6; border-left: 5px solid #008000; padding: 15px; margin-top: 20px; text-align: left; }
+        .sustainability-box h3 { color: #008000; margin-top: 0; }
+        .video-container { margin-top: 30px; }
+        iframe { width: 100%; height: 315px; border: none; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Disfruta tu Mermelada So! 🍇🍯</h1>
+        
+        <hr>
+        
+        <h2>Tu Mascota Coleccionable Única 🤩</h2>
+        <img src="{{ url_for('static', filename='mascotas/' + nombre_mascota) }}" 
+             alt="Mascota coleccionable de So" 
+             class="pet-image">
+        
+        <p>¡Te ha tocado la versión **{{ nombre_mascota.split('.')[0].replace('_', ' ').title() }}**. Hay 40 diseños diferentes para coleccionar.</p>
+        
+        <div class="sustainability-box">
+            <h3>🌱 Mensaje de Sostenibilidad para Ti</h3>
+            <p>{{ mensaje_sostenible }}</p> 
+        </div>
+
+        <hr>
+        
+        <h2>Proceso de Creación y Origen</h2>
+        <div class="video-container">
+            <iframe src="{{ datos.link_video }}" 
+                    title="Video del Proceso de Creación de Mermelada So" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+        
+    </div>
+</body>
+</html>
