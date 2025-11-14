@@ -36,7 +36,7 @@ def handle_qr_scan():
     
     # 4. Datos Fijos para la página
     datos_mermelada = {
-        'nombre_producto': 'So: Mermelada de Corozo y Yakón',
+        'nombre_producto': 'Zó!: Mermelada de Corozo y Yakón',
         'link_video': 'https://www.youtube.com/embed/TU_URL_DE_TU_VIDEO' # ¡Cámbialo!
     }
     
