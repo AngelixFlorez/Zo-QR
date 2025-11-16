@@ -3,48 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Bienvenido a So! | Descubre tu Mascota</title>
+    <title>¡Zó! | Tu Mascota de Corozo y Yakón</title>
     <style>
-        /* Estilos básicos para la demostración */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 20px; background-color: #f0f0f5; }
-        .container { max-width: 650px; margin: 0 auto; background-color: white; padding: 40px; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
-        h1 { color: #A52A2A; } /* Tono rojizo del Corozo */
-        .pet-image { width: 180px; height: 180px; object-fit: cover; border: 4px solid #FFD700; border-radius: 50%; margin: 25px auto; display: block; }
-        .sustainability-box { background-color: #e6ffe6; border-left: 5px solid #008000; padding: 15px; margin-top: 20px; text-align: left; }
-        .sustainability-box h3 { color: #008000; margin-top: 0; }
-        .video-container { margin-top: 30px; }
-        iframe { width: 100%; height: 315px; border: none; border-radius: 8px; }
+        /* Variables CSS para colores basados en el logo */
+        :root {
+            --color-primary: #A52A2A; /* Rojo profundo del Corozo / Botones */
+            --color-secondary: #4CAF50; /* Verde de las hojas */
+            --color-background: #FFF8E1; /* Crema/Beige del fondo del logo */
+            --color-text: #333;
+            --color-accent: #FFC107; /* Amarillo/Dorado para acentos */
+            --color-border: #ddd;
+            --color-light-bg: #f5f5f5; /* Fondo más claro para secciones */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 95%; /* Ajuste para que se vea bien en el móvil */
+            margin: 0 auto; /* Elimina margen superior para que se pegue al borde */
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-height: 100vh; /* Para que ocupe toda la altura visible en el móvil */
+        }
+
+        /* Encabezado fijo superior */
+        .header {
+            text-align: center;
+            padding: 15px 0 20px;
+            background-color: white;
+            border-bottom: 1px solid var(--color-border);
+            margin: -20px -20px 20px -20px; /* Extiende a los bordes del contenedor */
+        }
+        .header h1 {
+            font-size: 1.2em;
+            color: var(--color-primary);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* --- SECCIÓN MASCOTA --- */
+        .pet-section {
+            text-align: center;
+            padding: 10px 0 25px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .pet-id {
+            color: var(--color-primary);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .pet-image {
+            width: 130px; /* Reducido para parecer más a la simulación */
+            height: 130px;
+            object-fit: contain;
+            border: 1px solid var(--color-light-bg); /* Borde sutil */
+            border-radius: 50%;
+            margin: 10px auto;
+            display: block;
+        }
+
+        .sustainability-message {
+            font-size: 1em;
+            color: var(--color-text);
+            padding: 0 10px;
+            font-weight: 500;
+        }
+
+        /* --- BOTONES ACORDEÓN (Estilo Simulación) --- */
+        .accordion-button {
+            background-color: var(--color-primary);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1em;
+            margin-bottom: 8px; /* Separación entre botones */
+            border-radius: 8px; /* Bordes redondeados sutiles */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-button:hover {
+            background-color: #8B1A1A;
+        }
+
+        /* Icono + y - */
+        .accordion-button::after {
+            content: '\002B'; 
+            font-size: 1.5em; /* Icono más grande */
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-button.active::after {
+            content: "\2212"; 
+        }
+
+        .accordion-content {
+            padding: 0 18px;
+            background-color: #fdfdfd;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            border-radius: 0 0 8px 8px;
+            margin-bottom: 15px; /* Más espacio después del contenido */
+        }
+        .accordion-content.show {
+            max-height: 1000px; /* Altura máxima generosa */
+            padding: 18px;
+        }
+        .accordion-content p, .accordion-content ul {
+            margin-top: 0;
+        }
+
+        .video-container {
+            margin-top: 15px;
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>¡Disfruta tu Mermelada So! 🍇🍯</h1>
         
-        <hr>
+        <div class="header">
+            <h1>Zó! Mermelada</h1>
+        </div>
         
-        <h2>Tu Mascota Coleccionable Única 🤩</h2>
-        <img src="{{ url_for('static', filename='mascotas/' + nombre_mascota) }}" 
-             alt="Mascota coleccionable de So" 
-             class="pet-image">
-        
-        <p>¡Te ha tocado la versión **{{ nombre_mascota.split('.')[0].replace('_', ' ').title() }}**. Hay 40 diseños diferentes para coleccionar.</p>
-        
-        <div class="sustainability-box">
-            <h3>🌱 Mensaje de Sostenibilidad para Ti</h3>
-            <p>{{ mensaje_sostenible }}</p> 
+        <div class="pet-section">
+            <div class="pet-id">PERSONAJE #{{ nombre_mascota.split('.')[0].replace('mascota_', '') }}</div>
+            
+            <img src="{{ url_for('static', filename='mascotas/' + nombre_mascota) }}" 
+                 alt="Mascota coleccionable de Zó!" 
+                 class="pet-image">
+            
+            <p class="sustainability-message">
+                {{ mensaje_sostenible }}
+            </p>
         </div>
 
-        <hr>
-        
-        <h2>Proceso de Creación y Origen</h2>
-        <div class="video-container">
-            <iframe src="{{ datos.link_video }}" 
-                    title="Video del Proceso de Creación de Mermelada So" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-            </iframe>
+        <div class="info-sections">
+            
+            <button class="accordion-button">Descubre el Proceso</button>
+            <div class="accordion-content">
+                <p>Nuestra mermelada Zó! nace de un cuidadoso proceso artesanal, donde cada corozo es seleccionado a mano y combinado con el dulzor natural del yakón. Valoramos la tradición y la innovación para traerte un producto único.</p>
+                <div class="video-container">
+                    <iframe src="{{ datos.link_video }}" 
+                            title="Video del Proceso de Creación de Mermelada Zó!" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <button class="accordion-button">Nuestros Ingredientes Únicos</button>
+            <div class="accordion-content">
+                <p><strong>Corozo:</strong> Una fruta exótica de Colombia, conocida por su sabor agridulce y vibrante color. Rica en antioxidantes y vitaminas.</p>
+                <p><strong>Yakón:</strong> Un tubérculo andino, nuestro endulzante natural. Aporta un dulzor suave con bajo índice glucémico, ideal para una dieta consciente.</p>
+                <p>Ambos ingredientes son cultivados de forma sostenible, respetando el medio ambiente y apoyando a las comunidades locales.</p>
+            </div>
+
+            <button class="accordion-button">Nuestra Filosofía Sostenible</button>
+            <div class="accordion-content">
+                <p>En Zó! estamos comprometidos con el planeta. Desde la selección de nuestros ingredientes, el uso de envases reciclables, hasta el apoyo a prácticas agrícolas justas, cada paso de nuestra producción busca minimizar el impacto ambiental y social.</p>
+                <p>Creemos en un futuro donde el sabor delicioso y la sostenibilidad van de la mano.</p>
+            </div>
+
+            <button class="accordion-button">Preguntas Frecuentes</button>
+            <div class="accordion-content">
+                <ul>
+                    <li><strong>¿Es apta para diabéticos?</strong> El Yakón tiene un índice glucémico bajo, pero siempre recomendamos consultar a un médico o nutricionista.</li>
+                    <li><strong>¿Contiene conservantes?</strong> No, nuestra mermelada es 100% natural, sin conservantes ni colorantes artificiales.</li>
+                    <li><strong>¿Dónde puedo comprarla?</strong> Próximamente disponible en tiendas seleccionadas y nuestra tienda en línea. ¡Mantente atento!</li>
+                </ul>
+            </div>
         </div>
-        
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const isActive = this.classList.toggle('active');
+
+                    // Cierra todos los demás
+                    document.querySelectorAll('.accordion-content.show').forEach(openContent => {
+                        if (openContent !== content) {
+                            openContent.classList.remove('show');
+                            openContent.style.maxHeight = null;
+                            openContent.previousElementSibling.classList.remove('active');
+                        }
+                    });
+
+                    // Abre o cierra el actual
+                    if (isActive) {
+                        content.classList.add('show');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.classList.remove('show');
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
