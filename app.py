@@ -4,7 +4,7 @@ from flask import Flask, render_template # type: ignore
 # Inicializa la aplicación Flask
 app = Flask(__name__)
 
-NUM_MASCOTAS = 40
+NUM_MASCOTAS = 30
 
 # --- Diccionario con las 40 Mascotas y sus Mensajes de Sostenibilidad ---
 # DEBES COMPLETAR ESTE DICCIONARIO CON TUS 40 ENTRADAS
