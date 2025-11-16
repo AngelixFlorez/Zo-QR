@@ -1,5 +1,5 @@
 import random
-from flask import Flask, render_template
+from flask import Flask, render_template # type: ignore
 
 # Inicializa la aplicación Flask
 app = Flask(__name__)
@@ -30,12 +30,12 @@ def handle_qr_scan():
     # 3. Obtiene el mensaje de sostenibilidad
     mensaje_sostenible = MASCOTAS_DATA.get(
         nombre_archivo, 
-        "¡Gracias por elegir So! Nuestro compromiso es el sabor sostenible." # Mensaje de respaldo
+        "¡Gracias por elegir Zó! Nuestro compromiso es el sabor sostenible." # Mensaje de respaldo
     )
     
     # 4. Datos Fijos para la página
     datos_mermelada = {
-        'nombre_producto': 'So: Mermelada de Corozo y Yakón',
+        'nombre_producto': 'Zó!: Mermelada de Corozo y Yakón',
         'link_video': 'https://www.youtube.com/embed/TU_URL_DE_TU_VIDEO' # ¡Cámbialo!
     }
     
