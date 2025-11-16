@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Zó! | Tu Mascota de Corozo</title>
+    <title>¡Zó! | Tu Mascota de Corozo y Yakón</title>
     <style>
         /* Variables CSS para colores basados en el logo */
         :root {
             --color-primary: #A52A2A; /* Rojo profundo del Corozo / Botones */
-            --color-secondary: #4CAF50; /* Verde de las hojas */
+            --color-secondary: #4CAF50; /* Verde de las hojas / Botón Activo */
             --color-background: #FFF8E1; /* Crema/Beige del fondo del logo */
             --color-text: #333;
             --color-accent: #FFC107; /* Amarillo/Dorado para acentos */
@@ -26,27 +26,27 @@
         }
 
         .container {
-            max-width: 95%; /* Ajuste para que se vea bien en el móvil */
-            margin: 0 auto; /* Elimina margen superior para que se pegue al borde */
+            max-width: 95%; 
+            margin: 0 auto; 
             background-color: white;
             padding: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            min-height: 100vh; /* Para que ocupe toda la altura visible en el móvil */
+            min-height: 100vh; 
         }
 
-        /* Encabezado fijo superior */
+        /* --- LOGO ENCABEZADO --- */
         .header {
             text-align: center;
             padding: 15px 0 20px;
             background-color: white;
             border-bottom: 1px solid var(--color-border);
-            margin: -20px -20px 20px -20px; /* Extiende a los bordes del contenedor */
+            margin: -20px -20px 20px -20px; 
         }
-        .header h1 {
-            font-size: 1.2em;
-            color: var(--color-primary);
-            margin: 0;
-            font-weight: 600;
+        .header-logo {
+            max-width: 150px; /* Ajusta el tamaño del logo */
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         /* --- SECCIÓN MASCOTA --- */
@@ -65,10 +65,10 @@
         }
 
         .pet-image {
-            width: 130px; /* Reducido para parecer más a la simulación */
+            width: 130px; 
             height: 130px;
             object-fit: contain;
-            border: 1px solid var(--color-light-bg); /* Borde sutil */
+            border: 1px solid var(--color-light-bg); 
             border-radius: 50%;
             margin: 10px auto;
             display: block;
@@ -81,7 +81,7 @@
             font-weight: 500;
         }
 
-        /* --- BOTONES ACORDEÓN (Estilo Simulación) --- */
+        /* --- BOTONES ACORDEÓN --- */
         .accordion-button {
             background-color: var(--color-primary);
             color: white;
@@ -93,8 +93,8 @@
             outline: none;
             transition: background-color 0.3s ease, transform 0.2s ease;
             font-size: 1em;
-            margin-bottom: 8px; /* Separación entre botones */
-            border-radius: 8px; /* Bordes redondeados sutiles */
+            margin-bottom: 8px; 
+            border-radius: 8px; 
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -104,10 +104,16 @@
             background-color: #8B1A1A;
         }
 
+        /* ESTILO PARA BOTÓN ACTIVO (¡AHORA ES VERDE!) */
+        .accordion-button.active {
+            background-color: var(--color-secondary); 
+            transition: background-color 0.3s ease;
+        }
+
         /* Icono + y - */
         .accordion-button::after {
             content: '\002B'; 
-            font-size: 1.5em; /* Icono más grande */
+            font-size: 1.5em; 
             color: white;
             transition: transform 0.3s ease;
         }
@@ -123,10 +129,10 @@
             overflow: hidden;
             transition: max-height 0.4s ease-out, padding 0.4s ease-out;
             border-radius: 0 0 8px 8px;
-            margin-bottom: 15px; /* Más espacio después del contenido */
+            margin-bottom: 15px; 
         }
         .accordion-content.show {
-            max-height: 1000px; /* Altura máxima generosa */
+            max-height: 1000px; 
             padding: 18px;
         }
         .accordion-content p, .accordion-content ul {
@@ -155,7 +161,7 @@
     <div class="container">
         
         <div class="header">
-            <h1>Zó! Mermelada</h1>
+            <img src="{{ url_for('static', filename='logo_zo.png') }}" alt="Logo de Zó! Mermelada" class="header-logo">
         </div>
         
         <div class="pet-section">
