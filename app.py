@@ -63,10 +63,10 @@ MASCOTAS_DATA = {
     'mascota_26.png': "Afrontamos el clima. Adaptamos nuestras prácticas agrícolas para ser más resistentes a los cambios climáticos.",
     # 27. Zó! con un Regaderita (Regando)
     'mascota_27.png': "Usa tus recursos con mesura. Aplica el riego eficiente para no desperdiciar agua y energía en la agricultura.",
-    # 28. Zó! con un Rayo de Sol (Bajo un rayo de sol)
-    'mascota_28.png': "El sol nos da vida. Apoyamos la generación de energía renovable, como la solar, para reducir la dependencia de combustibles.",
-    # 29. Zó! con un Mapa Estelar (Mirando las estrellas)
-    'mascota_29.png': "Pensamos a largo plazo. Nuestra visión sostenible va más allá del hoy, buscando dejar un legado positivo para el futuro.",
+    # 28. ¡Zó! Comiendo Corozo (Hormiga comiendo el fruto)
+    'mascota_28.png': "¡Qué delicioso! El Corozo me da energía. Recuerda que consumir frutas de temporada y de origen local es más nutritivo y sostenible.",
+    # 29. ¡Zó! con el Planeta Tierra (Hormiga sosteniendo un globo terráqueo)
+    'mascota_29.png': "El Planeta es nuestra casa. Cada pequeña acción, como reducir el plástico, ayuda a proteger este gran globo que compartimos.",
     # 30. Zó! Dorada (Totalmente dorada)
     'mascota_30.png': "Eres un tesoro. Elegir Zó! significa que valoras la sostenibilidad como algo preciado y que impacta positivamente el mundo."
 }
