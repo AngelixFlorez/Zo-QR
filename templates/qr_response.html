@@ -104,7 +104,7 @@
             background-color: #8B1A1A;
         }
 
-        /* ESTILO PARA BOTÓN ACTIVO (¡AHORA ES VERDE!) */
+        /* ESTILO PARA BOTÓN ACTIVO (VERDE) */
         .accordion-button.active {
             background-color: var(--color-secondary); 
             transition: background-color 0.3s ease;
@@ -135,7 +135,7 @@
             max-height: 1000px; 
             padding: 18px;
         }
-        .accordion-content p, .accordion-content ul {
+        .accordion-content p, .accordion-content ul, .accordion-content ol {
             margin-top: 0;
         }
 
@@ -178,38 +178,44 @@
 
         <div class="info-sections">
             
-            <button class="accordion-button">Descubre el Proceso</button>
+            <button class="accordion-button">Descargar Folleto Informativo (PDF)</button>
             <div class="accordion-content">
-                <p>Nuestra mermelada Zó! nace de un cuidadoso proceso artesanal, donde cada corozo es seleccionado a mano y combinado con el dulzor natural del yakón. Valoramos la tradición y la innovación para traerte un producto único.</p>
-                <div class="video-container">
-                    <iframe src="{{ datos.link_video }}" 
-                            title="Video del Proceso de Creación de Mermelada Zó!" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
+                <p>Aquí puedes descargar nuestro folleto oficial que contiene información detallada sobre los ingredientes, la historia de Zó! y el impacto positivo de nuestra producción.</p>
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="{{ url_for('static', filename='folleto_informativo.pdf') }}" target="_blank" style="
+                        display: inline-block;
+                        padding: 10px 20px;
+                        background-color: var(--color-secondary); 
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        font-weight: bold;
+                        transition: background-color 0.3s;
+                    ">
+                        Descargar PDF
+                    </a>
                 </div>
             </div>
 
-            <button class="accordion-button">Nuestros Ingredientes Únicos</button>
+            <button class="accordion-button">Proceso Artesanal de Preparación</button>
             <div class="accordion-content">
-                <p><strong>Corozo:</strong> Una fruta exótica de Colombia, conocida por su sabor agridulce y vibrante color. Rica en antioxidantes y vitaminas.</p>
-                <p><strong>Yakón:</strong> Un tubérculo andino, nuestro endulzante natural. Aporta un dulzor suave con bajo índice glucémico, ideal para una dieta consciente.</p>
-                <p>Ambos ingredientes son cultivados de forma sostenible, respetando el medio ambiente y apoyando a las comunidades locales.</p>
+                <p>Elaboramos Zó! siguiendo una tradición artesanal que garantiza el mejor sabor y textura:</p>
+                <ol>
+                    <li>**Limpieza del Corozo:** El corozo se lava cuidadosamente para retirar toda la suciedad, preparándolo para la cocción.</li>
+                    <li>**Primer Cocimiento:** Se cocina el corozo con agua hasta que ablanda. Luego, se cuela la mezcla para **extraer la pulpa**.</li>
+                    <li>**Cocción Final:** Esta pulpa se lleva nuevamente a cocción junto con la **panela rallada**, el **extracto de yacón** y el jugo de un limón.</li>
+                    <li>**Punto de Espesamiento:** Revolvemos de forma constante hasta obtener una consistencia **espesa y homogénea**, lista para envasar.</li>
+                </ol>
             </div>
 
-            <button class="accordion-button">Nuestra Filosofía Sostenible</button>
+            <button class="accordion-button">Programa de Reciclaje y Fidelidad Zó!</button>
             <div class="accordion-content">
-                <p>En Zó! estamos comprometidos con el planeta. Desde la selección de nuestros ingredientes, el uso de envases reciclables, hasta el apoyo a prácticas agrícolas justas, cada paso de nuestra producción busca minimizar el impacto ambiental y social.</p>
-                <p>Creemos en un futuro donde el sabor delicioso y la sostenibilidad van de la mano.</p>
-            </div>
-
-            <button class="accordion-button">Preguntas Frecuentes</button>
-            <div class="accordion-content">
+                <p>¡Te premiamos por ayudarnos a cuidar el planeta! Nuestro programa es simple:</p>
                 <ul>
-                    <li><strong>¿Es apta para diabéticos?</strong> El Yakón tiene un índice glucémico bajo, pero siempre recomendamos consultar a un médico o nutricionista.</li>
-                    <li><strong>¿Contiene conservantes?</strong> No, nuestra mermelada es 100% natural, sin conservantes ni colorantes artificiales.</li>
-                    <li><strong>¿Dónde puedo comprarla?</strong> Próximamente disponible en tiendas seleccionadas y nuestra tienda en línea. ¡Mantente atento!</li>
+                    <li>🌱 **Por 10 Frascos Devueltos:** Te regalamos **una (1) Mermelada Zó!** de tu sabor favorito.</li>
+                    <li>✨ **Por 20 Frascos Devueltos:** Te regalamos un frasco **PERSONALIZADO** con tu nombre y el personaje de Zó! la Hormiga que elijas.</li>
                 </ul>
+                <p style="font-style: italic;">Consulta los puntos de recolección y las bases en nuestra web oficial.</p>
             </div>
         </div>
     </div>
